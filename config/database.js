@@ -1,4 +1,4 @@
-const path = require('path');
+const fs = require('fs');
 
 module.exports = ({ env }) => ({
     connection: {
@@ -9,7 +9,10 @@ module.exports = ({ env }) => ({
             database: env('DATABASE_NAME'),
             user: env('DATABASE_USERNAME'),
             password: env('DATABASE_PASSWORD'),
-            ssl: { "rejectUnauthorized": false }
+            ssl: {
+                rejectUnauthorized: false,
+                ca: env('CACERT'),
+            }
         },
     },
 });
