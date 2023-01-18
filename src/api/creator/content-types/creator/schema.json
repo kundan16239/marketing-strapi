@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "creators",
+  "info": {
+    "singularName": "creator",
+    "pluralName": "creators",
+    "displayName": "Creator",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "displayName": {
+      "type": "string",
+      "required": false
+    },
+    "displayPicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "verifiedProfile": {
+      "type": "boolean"
+    },
+    "affiliateMarketing": {
+      "type": "boolean"
+    },
+    "country": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "platforms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::platform.platform",
+      "mappedBy": "creator"
+    },
+    "category": {
+      "type": "customField",
+      "options": [
+        "gaming",
+        "tech",
+        "vlogging",
+        "automobiles",
+        "food",
+        "electronics",
+        "smartphones and gadgets"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "mobileNumber": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "creator"
+    }
+  }
+}

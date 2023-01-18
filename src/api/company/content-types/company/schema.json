@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "companies",
+  "info": {
+    "singularName": "company",
+    "pluralName": "companies",
+    "displayName": "Company",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "companyName": {
+      "type": "string"
+    },
+    "mobileNumber": {
+      "type": "string"
+    },
+    "taxNumber": {
+      "type": "string"
+    },
+    "websiteUrl": {
+      "type": "string"
+    },
+    "appUrl": {
+      "type": "string"
+    },
+    "verifiedProfile": {
+      "type": "boolean"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "company"
+    }
+  }
+}

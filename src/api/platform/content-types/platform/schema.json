@@ -1,0 +1,86 @@
+{
+  "kind": "collectionType",
+  "collectionName": "platforms",
+  "info": {
+    "singularName": "platform",
+    "pluralName": "platforms",
+    "displayName": "Platform",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "platformName": {
+      "type": "string"
+    },
+    "creator": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::creator.creator",
+      "inversedBy": "platforms"
+    },
+    "url": {
+      "type": "string"
+    },
+    "minCharges": {
+      "type": "biginteger"
+    },
+    "maxCharges": {
+      "type": "biginteger"
+    },
+    "GeographyViewersImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "CityViewersImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "GenderViewersImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "AgeViewersImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "GeographyViewersJson": {
+      "type": "json"
+    },
+    "CityViewersJson": {
+      "type": "json"
+    },
+    "GenderViewersJson": {
+      "type": "json"
+    },
+    "AgeViewersJson": {
+      "type": "json"
+    }
+  }
+}
