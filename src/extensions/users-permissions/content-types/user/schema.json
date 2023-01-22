@@ -64,7 +64,8 @@
       "configurable": false
     },
     "type": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "creator": {
       "type": "relation",
