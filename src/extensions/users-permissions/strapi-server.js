@@ -191,6 +191,7 @@ module.exports = (plugin) => {
                     $or: [{ email: identifier.toLowerCase() }, { username: identifier }],
                 },
             });
+        console.log(userWithSameIdentifier)
         if (userWithSameIdentifier) {
             return ctx.badRequest('Identifier already taken');
         } else {

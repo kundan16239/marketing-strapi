@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -35,6 +35,9 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "company"
+    },
+    "profileUrl": {
+      "type": "string"
     }
   }
 }
