@@ -13,7 +13,10 @@
     "@strapi/plugin-i18n": "4.5.6",
     "@strapi/plugin-users-permissions": "4.5.6",
     "@strapi/strapi": "4.5.6",
+    "aws-sdk": "^2.1304.0",
+    "axios": "^1.2.6",
     "better-sqlite3": "7.4.6",
+    "form-data": "^4.0.0",
     "pg": "^8.8.0",
     "strapi-plugin-multi-select": "^1.1.0",
     "strapi-provider-email-sendinblue": "^4.0.0"
