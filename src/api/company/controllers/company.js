@@ -66,8 +66,8 @@ module.exports = createCoreController('api::company.company', ({ strapi }) => ({
                 await deleteProductsImagesData(data.profileUrl)
             }
             delete updateData.user
-            const infoUpdate = await strapi.db.query('api::company.company').update({
-                where: { id: 3 },
+            await strapi.db.query('api::company.company').update({
+                where: { id: data.id },
                 data: updateData,
             });
 

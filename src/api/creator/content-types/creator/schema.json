@@ -16,22 +16,13 @@
       "type": "string",
       "required": false
     },
-    "displayPicture": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "verifiedProfile": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "affiliateMarketing": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "country": {
       "type": "string"
@@ -66,6 +57,13 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "creator"
+    },
+    "displayPicture": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
