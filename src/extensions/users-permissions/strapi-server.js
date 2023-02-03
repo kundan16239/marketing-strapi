@@ -92,17 +92,11 @@ module.exports = (plugin) => {
             if (!validPassword) {
                 throw new ValidationError('Invalid identifier or password');
             } else {
-                ctx.cookies.set("refreshToken", issueRefreshToken({ id: user.id }), {
-                    httpOnly: true,
-                    secure: false,
-                    signed: true,
-                    overwrite: true,
-                });
-                ctx.send({
-                    status: 'Authenticated',
+                return {
                     jwt: issueJWT({ id: user.id }, { expiresIn: process.env.JWT_SECRET_EXPIRES }),
+                    refreshToken: issueRefreshToken({ id: user.id }),
                     user: await sanitizeUser(user, ctx),
-                });
+                };
             }
 
             const advancedSettings = await store.get({ key: 'advanced' });
@@ -118,6 +112,7 @@ module.exports = (plugin) => {
 
             return ctx.send({
                 jwt: getService('jwt').issue({ id: user.id }),
+                refreshToken: issueRefreshToken({ id: user.id }),
                 user: await sanitizeUser(user, ctx),
             });
         }
@@ -167,12 +162,6 @@ module.exports = (plugin) => {
                 throw new ApplicationError('Your account has been blocked by an administrator');
             }
             const refreshToken = issueRefreshToken({ id: user.id })
-            ctx.cookies.set("refreshToken", refreshToken, {
-                httpOnly: true,
-                secure: false,
-                signed: true,
-                overwrite: true,
-            });
             ctx.send({
                 jwt: issueJWT({ id: obj.id }, { expiresIn: '10d' }),
                 refreshToken: refreshToken,
