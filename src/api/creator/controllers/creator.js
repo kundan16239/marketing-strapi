@@ -121,7 +121,6 @@ module.exports = createCoreController('api::creator.creator', ({ strapi }) => ({
                 });
             }
         }
-        console.log(checkData)
 
         return { success: true, message: "Creator Account Info created" }
     }
