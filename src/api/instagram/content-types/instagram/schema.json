@@ -1,0 +1,120 @@
+{
+  "kind": "collectionType",
+  "collectionName": "instagrams",
+  "info": {
+    "singularName": "instagram",
+    "pluralName": "instagrams",
+    "displayName": "Instagram",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "creator": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::creator.creator",
+      "inversedBy": "instagram"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "instagram"
+    },
+    "minCharges": {
+      "type": "string"
+    },
+    "maxCharges": {
+      "type": "string"
+    },
+    "Country": {
+      "type": "enumeration",
+      "enum": [
+        "India",
+        "China",
+        "Usa",
+        "France"
+      ]
+    },
+    "Language": {
+      "type": "enumeration",
+      "enum": [
+        "Hindi",
+        "English",
+        "Chinese",
+        "French"
+      ]
+    },
+    "GrafimiPoint": {
+      "type": "string"
+    },
+    "lastSixMonthReelLikeAverage": {
+      "type": "string"
+    },
+    "lastSixMonthPostLikeAverage": {
+      "type": "string"
+    },
+    "lastSixMonthReelViewAverage": {
+      "type": "string"
+    },
+    "lastSixMonthReelCommentAverage": {
+      "type": "string"
+    },
+    "lastSixMonthPostCommentAverage": {
+      "type": "string"
+    },
+    "totalFollower": {
+      "type": "string"
+    },
+    "totalPost": {
+      "type": "string"
+    },
+    "GeographyViewersImage": {
+      "type": "string"
+    },
+    "GenderViewersImage": {
+      "type": "string"
+    },
+    "AgeViewersImage": {
+      "type": "string"
+    },
+    "CityViewersImage": {
+      "type": "string"
+    },
+    "GeographyViewersJson": {
+      "type": "json"
+    },
+    "GenderViewersJson": {
+      "type": "json"
+    },
+    "CityViewersJson": {
+      "type": "json"
+    },
+    "AgeViewersJson": {
+      "type": "json"
+    },
+    "Category": {
+      "type": "customField",
+      "options": [
+        "Gaming",
+        "Funny",
+        "Comedy",
+        "TikToker",
+        "Lodi"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "videoJson": {
+      "type": "json"
+    },
+    "reelJson": {
+      "type": "json"
+    }
+  }
+}

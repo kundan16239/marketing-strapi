@@ -85,6 +85,47 @@
     },
     "AgeViewersJson": {
       "type": "json"
+    },
+    "country": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "category": {
+      "type": "customField",
+      "options": [
+        "Gaming",
+        "Streaming",
+        "Education",
+        "Comedy",
+        ""
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "platformType": {
+      "type": "customField",
+      "options": [
+        "Videos",
+        "Shorts",
+        "Live",
+        "Community",
+        "Post",
+        "Reels"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "subscriber": {
+      "type": "string"
+    },
+    "lastSixMonth": {
+      "type": "json"
+    },
+    "lastSixMonthAverage": {
+      "type": "string"
+    },
+    "lastContentView": {
+      "type": "string"
     }
   }
 }

@@ -78,6 +78,18 @@
       "relation": "oneToOne",
       "target": "api::company.company",
       "mappedBy": "user"
+    },
+    "youtube": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::youtube.youtube",
+      "mappedBy": "user"
+    },
+    "instagram": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::instagram.instagram",
+      "mappedBy": "user"
     }
   }
 }

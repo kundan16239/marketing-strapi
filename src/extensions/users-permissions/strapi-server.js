@@ -92,11 +92,11 @@ module.exports = (plugin) => {
             if (!validPassword) {
                 throw new ValidationError('Invalid identifier or password');
             } else {
-                return {
+                ctx.send({
                     jwt: issueJWT({ id: user.id }, { expiresIn: process.env.JWT_SECRET_EXPIRES }),
                     refreshToken: issueRefreshToken({ id: user.id }),
                     user: await sanitizeUser(user, ctx),
-                };
+                });
             }
 
             const advancedSettings = await store.get({ key: 'advanced' });
