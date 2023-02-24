@@ -38,6 +38,9 @@
     },
     "profileUrl": {
       "type": "string"
+    },
+    "noOfFilter": {
+      "type": "string"
     }
   }
 }

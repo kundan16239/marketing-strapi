@@ -9,6 +9,64 @@ const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController('api::company.company', ({ strapi }) => ({
 
+    async getFilterNumber(ctx) {
+        const userId = ctx.state.user.id
+        const data = await strapi.db.query('api::company.company').findOne({
+            where: {
+                user: {
+                    id: {
+                        $eq: userId
+                    }
+                }
+            },
+            select: ['noOfFilter'],
+        });
+        if (data.noOfFilter === null) {
+            data.noOfFilter = '0'
+        }
+        return { success: true, message: "No of Filter Available", data }
+    },
+
+    async postFilter(ctx) {
+        const userId = ctx.state.user.id
+        const data = await strapi.db.query('api::company.company').findOne({
+            where: {
+                user: {
+                    id: {
+                        $eq: userId
+                    }
+                }
+            },
+            select: ['noOfFilter'],
+        });
+        if (data.noOfFilter > 0) {
+            const entry = await strapi.db.query('api::company.company').update({
+                where: {
+                    user: {
+                        id: {
+                            $eq: userId
+                        }
+                    }
+                },
+                data: {
+                    noOfFilter: parseInt(data.noOfFilter) - 1,
+                },
+            });
+            const filterParams = ctx.request.body
+            const { platform, country, language, category, minPrice, maxPrice } = filterParams
+            // filter logic to get 10 creator id
+            const creatorIdArr = [23, 24]
+            const entries = await strapi.db.query('api::creator.creator').findMany({
+                select: ['displayName', 'displayPicture', 'verifiedProfile'],
+                where: { id: creatorIdArr },
+                populate: { youtube: true, instagram: true, 'youtube.minCharges': true },
+            });
+            return { success: true, message: "Filter Data", data: entries }
+        } else {
+            return { success: false, message: "No of Available Filter is Zero ", data: null }
+        }
+    },
+
     async find(ctx) {
         const userId = ctx.state.user.id
         const data = await strapi.db.query('api::company.company').findOne({
@@ -79,6 +137,8 @@ module.exports = createCoreController('api::company.company', ({ strapi }) => ({
         return { success: true, message: "Company Account Info created" }
 
     },
+
+
 
 
 

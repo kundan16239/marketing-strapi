@@ -1,0 +1,142 @@
+{
+  "kind": "collectionType",
+  "collectionName": "youtubes",
+  "info": {
+    "singularName": "youtube",
+    "pluralName": "youtubes",
+    "displayName": "Youtube"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "unique": true
+    },
+    "creator": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::creator.creator",
+      "inversedBy": "youtube"
+    },
+    "minCharges": {
+      "type": "string"
+    },
+    "maxCharges": {
+      "type": "string"
+    },
+    "GeographyViewersImage": {
+      "type": "string"
+    },
+    "CityViewersImage": {
+      "type": "string"
+    },
+    "AgeViewersImage": {
+      "type": "string"
+    },
+    "GenderViewersImage": {
+      "type": "string"
+    },
+    "Country": {
+      "type": "enumeration",
+      "enum": [
+        "India",
+        "China",
+        "Usa",
+        "Germany",
+        "France"
+      ]
+    },
+    "Language": {
+      "type": "enumeration",
+      "enum": [
+        "Hindi",
+        "English",
+        "Chinese",
+        "French"
+      ]
+    },
+    "Subscriber": {
+      "type": "string"
+    },
+    "GrafimiPoint": {
+      "type": "string"
+    },
+    "Category": {
+      "type": "customField",
+      "options": [
+        "Gaming",
+        "Clothing",
+        "Vlogging",
+        "Comedy",
+        ""
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "youtube"
+    },
+    "liveStreaming": {
+      "type": "boolean"
+    },
+    "GenderViewersJson": {
+      "type": "json"
+    },
+    "AgeViewersJson": {
+      "type": "json"
+    },
+    "CityViewersJson": {
+      "type": "json"
+    },
+    "GeographyViewersJson": {
+      "type": "json"
+    },
+    "videoJson": {
+      "type": "json"
+    },
+    "liveStreamJson": {
+      "type": "json"
+    },
+    "reelJson": {
+      "type": "json"
+    },
+    "lastSixMonthReelLikeAverage": {
+      "type": "string"
+    },
+    "lastSixMonthVideoLikeAverage": {
+      "type": "string"
+    },
+    "lastSixMonthLiveStreamLikeAverage": {
+      "type": "string"
+    },
+    "lastSixMonthReelCommentAverage": {
+      "type": "string"
+    },
+    "lastSixMonthVideoCommentAverage": {
+      "type": "string"
+    },
+    "lastSixMonthLiveStreamCommentAverage": {
+      "type": "string"
+    },
+    "lastSixMonthReelViewAverage": {
+      "type": "string"
+    },
+    "lastSixMonthVideoViewAverage": {
+      "type": "string"
+    },
+    "lastSixMonthLiveStreamViewAverage": {
+      "type": "string"
+    },
+    "totalNumberOfView": {
+      "type": "string"
+    },
+    "joiningDate": {
+      "type": "string"
+    }
+  }
+}

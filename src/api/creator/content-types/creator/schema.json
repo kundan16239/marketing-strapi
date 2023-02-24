@@ -64,6 +64,18 @@
     "verified": {
       "type": "boolean",
       "default": false
+    },
+    "youtube": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::youtube.youtube",
+      "mappedBy": "creator"
+    },
+    "instagram": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::instagram.instagram",
+      "mappedBy": "creator"
     }
   }
 }
