@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chats",
+  "info": {
+    "singularName": "chat",
+    "pluralName": "chats",
+    "displayName": "Chat",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "chatJson": {
+      "type": "json"
+    },
+    "chatStatus": {
+      "type": "boolean",
+      "default": true
+    },
+    "company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company.company",
+      "inversedBy": "chats"
+    },
+    "creator": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::creator.creator",
+      "inversedBy": "chats"
+    },
+    "lastChatSeenByCreator": {
+      "type": "string"
+    },
+    "lastChatSeenByCompany": {
+      "type": "string"
+    }
+  }
+}
