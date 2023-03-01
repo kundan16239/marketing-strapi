@@ -4,7 +4,8 @@
   "info": {
     "singularName": "youtube",
     "pluralName": "youtubes",
-    "displayName": "Youtube"
+    "displayName": "Youtube",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -137,6 +138,12 @@
     },
     "joiningDate": {
       "type": "string"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "youtubes"
     }
   }
 }
