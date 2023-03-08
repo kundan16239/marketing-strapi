@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -48,16 +48,10 @@
     "paymentSuccess": {
       "type": "boolean"
     },
-    "notificationSendToCreator": {
-      "type": "boolean"
-    },
     "contractAcceptedByCreator": {
       "type": "boolean"
     },
     "contractAcceptedByCreatorDate": {
-      "type": "string"
-    },
-    "notificationSendToCreatorDate": {
       "type": "string"
     },
     "paymentDate": {
@@ -75,34 +69,29 @@
     "contentUrlVerify": {
       "type": "boolean"
     },
-    "applyForContractCompletionByCreator": {
+    "paymentRequestByCreator": {
       "type": "boolean"
     },
-    "notificationSendToCompanyForContractCompletion": {
+    "contractApproved": {
       "type": "boolean"
     },
-    "paymentReleaseByCompany": {
-      "type": "boolean"
-    },
-    "paymentReleaseByCompanyDate": {
+    "contractApprovedDate": {
       "type": "string"
     },
-    "notificationSendToCompanyForContractCompletionDate": {
+    "paymentRequestByCreatorDate": {
       "type": "string"
     },
-    "applyForContractCompletionByCreatorDate": {
+    "disputeByCreator": {
+      "type": "boolean"
+    },
+    "disputeByCompany": {
+      "type": "boolean"
+    },
+    "cancelContractDate": {
       "type": "string"
     },
-    "cancelContractByCreator": {
-      "type": "boolean"
-    },
-    "cancelContractByCompany": {
-      "type": "boolean"
-    },
-    "chat": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::chat.chat"
+    "disputeDate": {
+      "type": "string"
     }
   }
 }

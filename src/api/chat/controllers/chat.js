@@ -104,18 +104,5 @@ module.exports = createCoreController('api::chat.chat', ({ strapi }) => ({
             });
             return { success: true, message: "Chat Initiated first time" }
         }
-
-
-
-
-        if (data !== null) {
-            return { updateData }
-        } else {
-            const checkData = await strapi.db.query('api::chat.chat').create({
-                data: updateData,
-            });
-        }
-        return { success: true, message: "Company Account Info created" }
-
     },
 }));
