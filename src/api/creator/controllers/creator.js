@@ -18,12 +18,11 @@ module.exports = createCoreController('api::creator.creator', ({ strapi }) => ({
                     }
                 }
             },
-            populate: { platforms: true }
+            populate: { youtube: true, instagram: true }
         });
         if (data === null) {
             return { success: true, data: "", message: "Empty Creator Account Info" }
         }
-        delete data.id
         return { success: true, data, message: "Get Creator Account Info" }
     },
 

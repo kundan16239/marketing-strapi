@@ -81,8 +81,6 @@ module.exports = createCoreController('api::company.company', ({ strapi }) => ({
         if (data === null) {
             return { success: true, data: "", message: "Empty Company Account Info" }
         }
-        delete data.id
-
         return { success: true, data, message: "Get Company Account Info" }
     },
 
