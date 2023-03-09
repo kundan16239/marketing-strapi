@@ -7,6 +7,31 @@
 const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController('api::chat.chat', ({ strapi }) => ({
+    async getAllChat(ctx) {
+        const userId = ctx.state.user.id
+        const userData = await strapi.db.query('plugin::users-permissions.user').findOne({
+            where: { id: userId },
+            select: ['type'],
+            populate: { company: true, creator: true }
+        });
+        let chatData
+        if (userData.type === 'company' && userData.company) {
+            chatData = await strapi.db.query('api::chat.chat').findMany({
+                where: { company: userData.company.id },
+                populate: { creator: true }
+            });
+            return { success: true, message: "Get All Chat Data For Company", data: chatData }
+        }
+        if (userData.type === 'creator' && userData.creator) {
+            chatData = await strapi.db.query('api::chat.chat').findMany({
+                where: { creator: userData.creator.id },
+                populate: { company: true }
+            });
+            return { success: true, message: "Get All Chat Data For Creator", data: chatData }
+        }
+        return { success: false, message: "Profile Not Created" }
+
+    },
     async find(ctx) {
         const params = ctx.request.query
         if (params.creatorId === undefined || params.companyId === undefined) {
