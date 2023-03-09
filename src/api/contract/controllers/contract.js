@@ -32,7 +32,6 @@ module.exports = createCoreController('api::contract.contract', ({ strapi }) => 
         return { success: false, message: "Profile Not Created" }
 
     },
-
     async find(ctx) {
         const userId = ctx.state.user.id
         const params = ctx.request.query
